@@ -34,7 +34,7 @@ export async function getPoll(app: FastifyInstance) {
      if (index % 2 == 0) {
       const score = result[index + 1] 
 
-      Object.assign(obj, [ line ]: score)
+      Object.assign({obj, [ line ]: score})
 
      }
      return obj
@@ -46,7 +46,7 @@ export async function getPoll(app: FastifyInstance) {
       poll: {
         id: poll.id,
         title: poll.title,
-        options: poll.options.map(option => {
+        options: poll.options.map((option: { id: string, title: string }) => {
           return {
             id: option.id,
             title: option.title,
